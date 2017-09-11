@@ -38,6 +38,53 @@
 	- Transfer Control Protocol (TCP): RFC 793 => http://www.ietf.org/rfc/rfc793.txt
 * A packet: contains implementations of all the protocol layers; encapsulation model
 * A PCAP: a file of packet captures from a network
+
+# Tuesday, September 12th: Sniffing
+* The next lab
+* So you may be curious: how did we capture all those packets?
 * The Wall of Sheep
 * tcpdump, Wireshark, ettercap
-* The next lab
+* Two types of networks:
+  1. Unswitched - packets flow through all devices on network but you look at only the packets addressed to you......
+    - Welp... http://superuser.com/questions/191191/where-can-i-find-an-unswitched-ethernet-hub
+  2. Switched - packets flow through specific devices on network
+* Promiscuous mode
+* Preventing sniffing:
+  1. Use encryption and encrypted network protocols
+  2. VPN
+  3. Use switched network......?
+* LAN Tap: http://hakshop.myshopify.com/products/throwing-star-lan-tap-pro
+* Address Resolution Protocol
+  - IP address to MAC address on a network
+  - Recall OSI model and packets
+  - `arp -a`
+  - ARP cache on machine for 20 minutes
+  - No authentication
+* ARP spoofing or ARP poisoning
+* Bettercap
+
+# Thursday, September 14th: Scanning
+* Last class: sniffing unswitched and switched networks
+* Is sniffing still relevant today?
+* Preventing sniffing on switched network:
+  - anti-arpspoof
+  - ArpON
+  - Antidote
+  - Arpwatch
+* About that problem on the PCAPs lab
+  - A goal of this class: recognition and mindset
+  - Base64: binary-to-text encoding scheme.  That is: binary data to ASCII
+  - http://stackoverflow.com/questions/6916805/why-does-a-base64-encoded-string-have-an-sign-at-the-end
+  - Why? Dangers in printing payload: https://unix.stackexchange.com/questions/73713/how-safe-is-it-to-cat-an-arbitrary-file
+  - Why? Basic authentication on web. Example: https://github.com/LiamRandall/BsidesDC-Training/blob/master/http-auth/http-basic-auth-multiple-failures.pcap
+* Scanning
+  - Why? Network reconnaissance.  Warfare 101
+  - What devices and computers are up?
+  - What ports are open on a computer?
+  - What services are running
+  - Determine possible vulnerabilities
+* Is scanning still relevant today?
+* Basic method: ping sweep
+* Problems with ping?
+* Netcat
+* Nmap
