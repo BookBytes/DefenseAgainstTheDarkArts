@@ -97,13 +97,15 @@
   - FIN scan: `sudo nmap -sF ...`
   - NULL scan: `sudo nmap -sN ...`
   - XMAS scan: `sudo nmap -sX ...' # FIN, PSH, URG flags in packet]
+
+
+# Tuesday, September 21st: Distributed Denial of Service (DDoS) Attacks
+* Last class: the stealthy scans
 * Decoy:
   - `sudo nmap -D...`
   - spoofed connections
   - Must use real + alive IP address, else SYN flood
-
-# Tuesday, September 21st: Distributed Denial of Service (DDoS) Attacks
-* Last class: the stealthy scans, using decoys
+* Rob Graham's Masscan
 * Defending against scanners
   - No certain way
   - Firewalls?
