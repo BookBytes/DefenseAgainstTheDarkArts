@@ -148,12 +148,75 @@
   - Reference 2: https://blog.cloudflare.com/deep-inside-a-dns-amplification-ddos-attack/
   - Case study from last week: Brian Krebs http://krebsonsecurity.com/2016/09/krebsonsecurity-hit-with-record-ddos/
 * How easy it is to spoof packets? I want to introduce you to Scapy......
-* Example, to make a DNS query: https://gist.github.com/thepacketgeek/6928674
 
-# Future
-* About that problem on the PCAPs lab
+# Tuesday, September 26th: Crypto, Part I
+* Last week: Decoy scanning => DDoS and amplification attacks => spoofing packets => Scapy
+* Scapy example 1: to make a DNS query: https://gist.github.com/thepacketgeek/6928674
+* Scapy example 2: spoofing packets (Ping)
+* About set4.pcap on the PCAPs lab:
   - A goal of this class: recognition and mindset
   - Base64: binary-to-text encoding scheme.  That is: binary data to ASCII
   - http://stackoverflow.com/questions/6916805/why-does-a-base64-encoded-string-have-an-sign-at-the-end
   - Why? Dangers in printing payload: https://unix.stackexchange.com/questions/73713/how-safe-is-it-to-cat-an-arbitrary-file
   - Why? Basic authentication on web. Example: https://github.com/LiamRandall/BsidesDC-Training/blob/master/http-auth/http-basic-auth-multiple-failures.pcap
+* Encoding vs encryption: they are not the same
+  - Encoding: "The purpose of encoding is to transform data so that it can be properly (and safely) consumed by a different type of system. The goal is not to keep information secret, but rather to ensure that it’s able to be properly consumed."
+  - Encryption: "to transform data in order to keep it secret from others, e.g. sending someone a secret letter that only they should be able to read, or securely sending a password over the Internet. Rather than focusing on usability, the goal is to ensure the data cannot be consumed by anyone other than the intended recipient(s)."
+  - Source: https://danielmiessler.com/study/encoding-encryption-hashing-obfuscation/
+* This week: crypto, the foundation of Computer Security
+* The golden rule: "Never Roll Your Own Crypto"
+* Crypto algorithms: symmetric, hash functions, asymmetric
+* Tradeoffs to consider:
+  - Cost of breaking a cipher
+  - Value of the information that is encrypted
+  - Time required to break info
+  - Lifetime of information?
+* The only secure crypto algorithm: One-Time Pad
+  - Video: https://www.khanacademy.org/computing/computer-science/cryptography/crypt/v/one-time-pad
+* Symmetric algorithms: DES, AES, RC4. What do they provide in terms of security? What do they not provide?
+* One way hash functions: MD5, SHA-1.  What do they provide in terms of security? What do they not provide?
+
+# Thursday, September 28th: Crypto, Part II
+* Recall the cyber attack cycle.........
+* Last class: the golden rules of crypto, symmetric algorithms, one-way hash functions
+* Applications: checksums, Git hash (SHA-1)
+* Cracking user accounts on Linux systems:
+  - Use /etc/passwd and /etc/shadow files from Linux-based systems
+  - $algorithm$salt$hash
+  - $1$ = MD5
+  - $2$ = Blowfish
+  - $5$ = SHA-256
+  - $6$ = SHA-512
+* Today: asymmetric crypto, public and private keys: RSA
+* Example: SSH, GitHub
+* What does asymmetric crypto does not provide?
+
+# Tuesday, October 3rd: Crypto, Part III
+* So how does Transport Layer Security (TLS) (also commonly known as Secure Socket Layer or SSL work)?
+  - Why? HTTPS is HTTP inside of a TLS session
+  - Uses BOTH symmetric and asymmetric crypto
+  - Secure communications between two parties over a network
+  - On top of TCP
+  - Different port numbers used for TLS connection.  Port 443 for HTTPS
+  - Part 1: Data between two parties encrypted via symmetric crypto.  Why?
+  - Part 2: Identity of communicating parties identified via asymmetric crypto
+  - Connection integrity via message integrity check using a message authentication code 
+  - Digital certificates - assert the online identities of individuals, computers, and other entities on a network
+    - They are issued by certification authorities (CAs) that must validate the identity of the certificate-holder both before the certificate is issued and when the certificate is used.
+    - Specification: https://technet.microsoft.com/en-us/library/cc776447(v=ws.10).aspx
+* TLS process:
+  1. Client connects to TLS-enabled server. Client requesting a secure connection and presents a list of supported cipher suites (ciphers and hash functions).
+  2. The server checks what the highest SSL/TLS version is that is supported by them both, picks a ciphersuite from one of the client's options (if it supports one), and optionally picks a compression method.
+  3. The server sends back its identification via digital certificate (THIS MAY NOT HAPPEN)
+  4. Client confirms validity of certificate --or NOT!
+  5. Both the server and the client can now compute the session key (or shared secret) for the symmetric encryption and decryption of the data.  This computation of the session key is known as Diffie-Hellman key exchange.
+  6. "The client tells the server that from now on, all communication will be encrypted, and sends an encrypted and authenticated message to the server."
+* References:
+  - https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work
+  - https://stackoverflow.com/questions/788808/how-do-digital-certificates-work-when-used-for-securing-websites-using-ssl
+  - http://security.stackexchange.com/questions/45963/diffie-hellman-key-exchange-in-plain-english
+  - https://blogs.akamai.com/2016/03/enterprise-security---ssltls-primer-part-1---data-encryption.html
+  - https://blogs.akamai.com/2016/03/enterprise-security---ssltls-primer-part-2---public-key-certificates.html
+* Creating self-signed certificates:
+  - For Apache web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04
+  - For nginx web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04
