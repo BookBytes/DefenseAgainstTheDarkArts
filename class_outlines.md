@@ -220,3 +220,36 @@
 * Creating self-signed certificates:
   - For Apache web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04
   - For nginx web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04
+
+#Tuesday, October 10th: Web Security
+* Last class before Ashley's talk: crypto algorithms, password cracking
+* Transition to web and web security
+* Why web security?
+  - https://www.helpnetsecurity.com/2017/02/14/web-application-vulnerabilities/
+  - "Web application attacks accounted for 73% of all incidents says report": https://www.scmagazine.com/web-application-attacks-accounted-for-73-of-all-incidents-says-report/article/682294/
+  - Veracode's State of Software 2016 report: https://www.veracode.com/sites/default/files/Resources/Reports/state-of-software-security-volume-7-veracode-report.pdf
+* OWASP Top 10: https://www.owasp.org/index.php/Top_10_2017-Top_10 (REJECTED); https://www.owasp.org/index.php/Top_10_2013-Top_10
+* SANS Top 25 (old): https://www.sans.org/top25-software-errors/
+* How HTTP works
+* How HTTPS works
+* Playground of vulnerable web apps
+* Proxies: Burp, mitmproxy
+* Vulnerability: hard-coding credentials
+* Vulnerability: least privilege
+* Vulnerability: Cross-Site Scripting (XSS)
+  - https://www.youtube.com/watch?v=t161cahMAZc
+
+#Thursday, October 20th: Web Security
+* How I designed the Scapy lab
+* Last class: XSS, proxy, playground
+* Today: SQLi, XSRF, command execution, file uploads, directory traversal
+* SQL injection
+  - The idea: twist SQL queries via input data => access or modify data you should not have access to
+  - Where to attack: web applications with a database; attack form fields or URL parameters
+  - The culprit: the single quote
+  - How to determine SQL injection: errors displayed on page
+  - Blind SQL injection: asks the database true or false questions and determines the answer based on the applications response
+  - Prevention:
+    - Filter out special characters
+    - Limit data and privileges that a database has access to => least privilege
+    - Use prepared statements
