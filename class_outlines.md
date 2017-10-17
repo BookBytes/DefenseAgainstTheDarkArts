@@ -221,7 +221,7 @@
   - For Apache web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-16-04
   - For nginx web servers: https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-nginx-in-ubuntu-16-04
 
-#Tuesday, October 10th: Web Security
+# Tuesday, October 10th: Web Security
 * Last class before Ashley's talk: crypto algorithms, password cracking
 * Transition to web and web security
 * Why web security?
@@ -239,17 +239,33 @@
 * Vulnerability: Cross-Site Scripting (XSS)
   - https://www.youtube.com/watch?v=t161cahMAZc
 
-#Thursday, October 20th: Web Security
-* How I designed the Scapy lab
-* Last class: XSS, proxy, playground
-* Today: SQLi, XSRF, command execution, file uploads, directory traversal
-* SQL injection
-  - The idea: twist SQL queries via input data => access or modify data you should not have access to
-  - Where to attack: web applications with a database; attack form fields or URL parameters
-  - The culprit: the single quote
-  - How to determine SQL injection: errors displayed on page
-  - Blind SQL injection: asks the database true or false questions and determines the answer based on the applications response
-  - Prevention:
-    - Filter out special characters
-    - Limit data and privileges that a database has access to => least privilege
-    - Use prepared statements
+# Tuesday, October 18th: Vulnerabilities, Loose Ends
+* Recall: vocabulary (Course Introduction)
+* Why talk about this now?
+  - The next topics have a lot to do about vulnerabilities
+  - Vocabulary
+  - Understand why software development is very difficult. A painful example......
+  - Misconceptions
+  - The difficulty of disclosure
+* Common Vulnerabilities and Exposures (CVE) https://cve.mitre.org/
+  - SushiDude a.k.a., Steve Christey Coley
+  - The ugly: http://www.csoonline.com/article/3122460/techology-business/over-6000-vulnerabilities-went-unassigned-by-mitres-cve-project-in-2015.html
+* Common Weakness Enumeration (CWE)
+* The differences: https://www.veracode.com/blog/2016/08/language-appsec
+* Open Sourced Vulnerability Database (OSVDB) http://osvdb.org/
+  - attrition.org
+  - H.D. Moore
+  - Rain Forest Puppy
+  - Chris Sullo
+  - DEAD, looking for someone to pick it back up
+* National Vulnerability Database https://nvd.nist.gov/home.cfm
+* Exploit DB https://www.exploit-db.com/
+* Scanning for vulns:
+  - Nikto https://github.com/sullo/nikto
+  - OpenVAS
+  - Nessus
+  - w3af
+  - Metasploit (Rapid7) https://github.com/rapid7/metasploit-framework
+* If you do a scan or a penetration test of a system and no vulnerabilities are reported, is that a good thing?
+  - The badness-ometer
+* Practice: Nikto, XSS, SQLi, XSRF, command injection
