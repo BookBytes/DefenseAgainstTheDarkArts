@@ -269,3 +269,61 @@
 * If you do a scan or a penetration test of a system and no vulnerabilities are reported, is that a good thing?
   - The badness-ometer
 * Practice: Nikto, XSS, SQLi, XSRF, command injection
+
+# Thursday, November 9th
+* Winner of the password cracking competition
+* Password cracking results
+* CTF recap
+* The next lab
+* Recall, Static analysis:
+  - No execution of program
+  - Rule based
+  - Full coverage
+  - Binary: black box
+  - Code: white box
+  - Examples: lint, Coverity, Fortify, grep, COMP 105 type checker
+* Recall, Dynamic analysis:
+  - System execution
+  - Trial and error
+  - Detect dependencies
+  - Deal with real runtime variables
+  - Based on automated tests, user interactions
+  - No guarantee of full coverage of source
+  - Example: Valgrind
+* Strengths and weaknesses of analysis
+  - Find vulnerabilities with high confidence
+  - False positives, false negatives
+  - Can't find configuration issues
+  - Can you prove findings are vulnerabilities?
+* Tool: Veracode Analysis Center
+* The bigger picture: vulnerabilities
+  - https://mchow01.github.io/docs/MSS13_Session11.pdf
+* Q: Strike back?
+  - http://www.chinahacker.com
+
+#Tuesday, November 14th: Malware
+* Virus
+  - Think of a biological virus: propagation and piggybacking
+  - A malicious piece of executable code
+  - Propagates by attaching itself to a host file
+  - A virus can be: an executable (i.e., .exe as seen in e-mail attachment), a script, document containing macros
+  - A boot sector of a disk partition
+  - Note: when propagating, the virus does not have to be an exact copy of itself!
+  - If you send infected file to someone else and that person executes the file, it will infect the person's system as well
+  - Viruses do not re-infect already infected files
+* Worm
+  - Does not need to attach itself to another file (i.e., self-contained)
+  - Send copies of itself over a network
+  - Another difference: a virus infects a machine while a worm infects a network (e.g., consuming bandwidth)
+  - How does a worm hop from machine to machine on a network? Using remote commands such as rsh, password cracking, using sockets
+  - Techniques
+    - Scanning; select random IPv4 addresses
+    - Send small packets to reduce suspicion
+    - Connect to vulnerable network services, exploit vulnerability
+    - Perhaps even open up a shell
+* Backdoor
+  - Bypasses authentication
+  - Grants attacker access to remote machine
+  - Connecting to a remote machine: used netcat or a malware kit (e.g., MPack)
+  - Example 2: tini.exe
+* VirusTotal: https://www.virustotal.com/
