@@ -327,3 +327,117 @@
   - Connecting to a remote machine: used netcat or a malware kit (e.g., MPack)
   - Example 2: tini.exe
 * VirusTotal: https://www.virustotal.com/
+
+# Tuesday, November 28th: Forensics and Incident Handling
+* What is forensics?
+  - Preservation (of computer media)
+  - Identification (of computer media)
+  - Extraction (of computer media)
+  - Interpretation
+  - Documentation
+* Process
+  - Assess the situation
+  - Acquire data
+  - Analyze data
+  - Report
+* Terminology
+  - Volatile => RAM, processes
+  - Non-volatile => Hard disks, USB drives
+  - Physical acquisition - bit-by-bit copy of entire physical store
+  - Logical acquisition - bit-by-bit copy of directories and files on a file system partition
+  - Write blockers: "devices that allow acquisition of information on a drive without creating the possibility of accidentally damaging the drive contents. They do this by allowing read commands to pass but by blocking write commands" (http://forensicswiki.org/wiki/Write_Blockers)
+  - Chain-of-custody - chronological documentation from "crade-to-grave" (i.e., seizure, custody, control, transfer, analysis, disposal)
+* Tools
+  - strings
+  - dd (convert-and-copy)
+  - FTK
+  - Encase
+  - stegdetect
+  - Sleuthkit and Autopsy
+* Incident Handling. Or Why Incident Handling?
+  - Chaos
+  - Barking up the wrong trees
+  - Dead-end investigations
+  - Hard to accumulate knowledge, experience
+  - Legal issues
+  - Cost overruns
+  - Organization (i.e., do not know who to contact)
+* Forensics vs. Incident Handling
+  - There are overlaps
+  - Forensics: "finding and documenting the actions of a person or persons in relation to other people or places or activities. Must have a strong understanding of where and how data is stored, how data is created, how to recover that data in a forensically sound manner and how to analyze the recovered data.""
+  - Incident Handling: generally speaking, must be well versed with many facets of IT and information security.
+  - Source: http://exforensis.blogspot.com/2009/09/how-is-computer-forensics-different.html
+
+# Tuesday, November 30th: Anti-Forensics, Privacy
+* Last class: forensics
+* Anti-forensics
+  - Full-disk wipe, DoD 5220.22-M (http://www.dss.mil/documents/odaa/nispom2006-5220.pdf)
+  - Remove logs
+  - Steganography
+  - Encryption (full-disk, e.g., Android, TrueCrypt)
+* The last lab: disk image --physical or logical acquisition?  Write blocker used?
+* Question: countermeasures to forensics?
+* Question: what is privacy?
+* Why talk privacy?
+  1. Misconceptions
+  2. Misunderstandings
+  3. Legal implications
+* True privacy: permits a person to be effectively invisible
+* Impossible.  Reasons:
+  - ISP logs
+  - Poorly written software
+  - Technology itself
+* The good: Notepad, Paint
+* The bad: World of Warcraft, Quickens, Facebook, Microsoft Word
+* What to do now in the age of Facebook:
+  - Control: comply with person's desire when it comes to handling personal information, data collection
+  - Disclosure: failure to explicitly consider privacy => bad press. Examples: Windows Media Player, HP printers
+* Mantras:
+  - Provide prominent disclosure
+  - Put users in charge of their data
+  - Seek anonymity
+  - _Less is more_
+  - Customers come first
+* Privacy Enhancing Technologies (PETs): crowds, Tor, Hushmail, prepaid credit cards
+* Privacy Aware Technologies (PATs): Unsubscribe, password, encryption
+* Goals of PATs and PETs:
+  - Unlinkability
+  - Anonymity
+  - Pseudonymity
+  - Unobservability
+* Legislation
+  - U.S. Safe Harbor Privacy Principles
+  - HIPAA (1996)
+  - GLBA (1998)
+* Current Issues
+  - Deploying new technology naively
+  - Violating location-based technologies
+  - RFID
+  - Mobile
+
+# What's The Point?
+* Course evaluations
+* NEED A SCRIBE
+* Debate questions:
+  - Edward Snowden: sinner or saint?
+  - Self-driving cars and IoT: who is liable for accidents?
+  - Cyber security: nihilism or hope?
+  - Should encryption be regulated in any way?
+* Many topics we did not talk about this semester
+* We learned a little about a lot this semester. You know enough to be dangerous.  But a broad knowledge is also very valuable to give you flexibility
+* A big thank you, of personal note
+* The teaching goals of this class
+  - Understand tradeoffs.  That includes badly designed software, PHP statements with SQL injection
+  - Be informed of the issues. Because most in CS just do not know them.
+  - Even consider security in software and in CS, very much like thinking about health and safety. http://www.theatlantic.com/technology/archive/2015/11/programmers-should-not-call-themselves-engineers/414271/
+  - Simplicity is important, complexity is bad
+* The point of this class and the ultimate goal
+  - **Be a good citizen**
+  - **Some not so good news...**
+  - Talk to those who are curious
+  - Reach out to the non-tech
+  - Engage and encourage constructive debates (why I asked those debate questions)
+  - We are now in a state of crisis
+  - The real hard problem: policy
+  - Two years ago: http://money.cnn.com/2015/12/08/technology/encryption-congress-commission/
+  - https://speakerdeck.com/chriseng/time-to-grow-up-counterproductive-security-behaviors-that-must-end
