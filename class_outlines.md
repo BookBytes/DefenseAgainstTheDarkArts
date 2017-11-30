@@ -364,10 +364,17 @@
   - Organization (i.e., do not know who to contact)
 * Forensics vs. Incident Handling
   - There are overlaps
-  - Forensics: "finding and documenting the actions of a person or persons in relation to other people or places or activities. Must have a strong understanding of where and how data is stored, how data is created, how to recover that data in a forensically sound manner and how to analyze the recovered data.""
+  - Forensics: "finding and documenting the actions of a person or persons in relation to other people or places or activities. Must have a strong understanding of where and how data is stored, how data is created, how to recover that data in a forensically sound manner and how to analyze the recovered data."
   - Incident Handling: generally speaking, must be well versed with many facets of IT and information security.
   - Source: http://exforensis.blogspot.com/2009/09/how-is-computer-forensics-different.html
-
+* Incident Handling Phases
+  - Preparation
+  - Identification
+  - Containment
+  - Eradication
+  - Recovery
+  - Lessons Learned
+  - Read: https://www.sans.org/reading-room/whitepapers/incident/incident-handlers-handbook-33901
 # Tuesday, November 30th: Anti-Forensics, Privacy
 * Last class: forensics
 * Anti-forensics
